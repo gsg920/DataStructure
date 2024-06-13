@@ -14,7 +14,9 @@ Java
 
 ### 기술 스택
 
-- Java
+* 언어 : Java
+* 협업툴 : github
+* 개발환경 : VSCode, Eclipse
 
 ## 기능
 
