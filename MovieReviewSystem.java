@@ -1,6 +1,6 @@
 package projects;
 
-import java.time.LocalDate;
+
 import java.util.*;
 
 public class MovieReviewSystem {
@@ -9,6 +9,13 @@ public class MovieReviewSystem {
 
 	public MovieReviewSystem() {
 		movies = new ArrayList<>();
+		
+		// {1: [
+		//       {userId: "박건상", comment: "짱짱 재밌어용", rating: 1.5}, 
+		//		 {userId: "공해성" , comment: "무난한 영화에요 ", rating: 4},
+		//		 {userId: "한소연" , comment: "박진감 넘치는 영화에요 ", rating: 4.3},
+		//		]
+		// }
 		reviews = new HashMap<>();
 		initializeMovies();
 	}
@@ -112,7 +119,7 @@ public class MovieReviewSystem {
 		reviews.get(movieId).add(review);
 		System.out.println("리뷰가 성공적으로 등록되었습니다.");
 	}
-
+ 
 	// 리뷰 정렬
 	public List<Review> getSortedReviews(String title, String option) {
 		try {
@@ -147,9 +154,9 @@ public class MovieReviewSystem {
 		Scanner scanner = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("1. 영화 제목 등 ");
+			System.out.println("1. 영화 제목 등록 ");
 			System.out.println("2. 리뷰 등록");
-			System.out.println("3. 리뷰 정");
+			System.out.println("3. 리뷰 정렬 ");
 			System.out.println("4 종료 ");
 			System.out.print("선택: ");
 			int choice = scanner.nextInt();
@@ -193,9 +200,11 @@ public class MovieReviewSystem {
 
 					List<Review> reviews = system.getSortedReviews(title1, option);
 					for (Review review : reviews) {
+						System.out.println("=============================");
 						System.out.println("리뷰 작성자: " + review.getUserId());
 						System.out.println("코멘트: " + review.getComment());
 						System.out.println("평점: " + review.getRating());
+						System.out.println("=============================");
 						System.out.println();
 					}
 					break;
